@@ -1,8 +1,13 @@
 \documentclass{beamer}
 \usepackage{amsmath}
 \usepackage{tikz-cd}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
 
 \usetheme{Berlin}
+
+\newcommand{\cat}[1]{\mathsf{#1}}
 
 \title{An Introduction to Abelian Categories}
 \author{Gabriel Antonio Videtta}
@@ -12,6 +17,37 @@
 
 \begin{frame}
     \titlepage
+\end{frame}
+
+\begin{frame}{Preliminary steps (i)}
+    The intuition for abelian categories comes from the
+    behaviour of a kind of
+    mathematical object which is found
+    everywhere in each science: \textbf{vector spaces}. \bigskip
+
+
+    Vector spaces are considered to be well understood
+    and have interesting categorical properties.
+\end{frame}
+
+\begin{frame}{Preliminary steps (ii)}
+    First of all, we will denote with $\cat{Vect}_K$ the category
+    of vector spaces over the field $K$, whose objects are vector spaces and
+    morphisms are linear maps. \bigskip
+
+
+    We will denote with $\cat{FinDimVect}_K$ the subcategory
+    of $\cat{Vect}_K$ which contains only finite dimensional
+    $K$-vector spaces.
+\end{frame}
+
+\begin{frame}{Preliminary steps (iii)}
+    Vector spaces have a peculiar property: initial objects are
+    isomorphic to final objects! \medskip
+    
+    Moreover $\cat{FinDimVect}_K$ is self-dual (even though
+    it's not a ``natural duality''!), finite dimensional
+    vector spaces share even more good properties.
 \end{frame}
 
 \end{document}
