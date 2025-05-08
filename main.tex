@@ -41,7 +41,7 @@
     $K$-vector spaces.
 \end{frame}
 
-\begin{frame}{Preliminary steps (iii)}
+\begin{frame}{Preliminary steps (iii): zero objects}
     Vector spaces have a peculiar property: initial objects are
     isomorphic to final objects! This tells use that $0$ (the
     zero dimensional vector space) is a special object.
@@ -74,27 +74,42 @@
     This gives rise to an important definition...
 \end{frame}
 
-\begin{frame}{Preliminary steps (v)}
+\begin{frame}{Preliminary steps (v): enriched categories}
     \begin{definition}[Enriched categories]
         Let $\mathcal{C}$ be a category. We say that $\mathcal{C}$
-        is a category \textbf{enriched over a category $\mathcal{D}$}
+        is a category \textbf{enriched over a monoidal category $(\mathcal{D}, \otimes)$}
         if the hom-sets of $\mathcal{C}$ are objects from
-        $\mathcal{D}$. \medskip
+        $\mathcal{D}$ and if the composition of morphisms makes
+        the composition $\circ$ bilinear over $\otimes$, namely:
 
-
-        We restrict $\mathcal{D}$ to be a monoidal category (e.g.,
-        cartesian category, $\cat{Ab}$, $\cat{Vect}_K$, $\cat{Mod}_R$).
+        \[
+            (F \otimes G) \circ H = (F \circ H) \otimes (G \circ H),
+        \]
+        \[
+            F \circ (G \otimes H) = (F \circ G) \otimes (F \circ H).
+        \]
     \end{definition}
 
     Therefore, we can say that $\cat{Vect}_K$ is enriched over itself!
 \end{frame}
 
-\begin{frame}{Preliminary steps (vi)}
+\begin{frame}{Preliminary steps (vi): preadditive categories}
+    Recall that an abelian group is a monoid which allows inverses
+    and satisfies the law of commutativity. For example, a vector
+    space $V$ is itself an abelian group. \medskip
+
     \begin{definition}[Preadditive category]
         Let $\mathcal{C}$ be a category. We say that $\mathcal{C}$
         is a \textbf{preadditive category} if it's enriched
         over the category of abelian groups ($\cat{Ab}$).
-    \end{definition}
+    \end{definition} \smallskip
+
+    In short, a preadditive category is such that its morphisms can
+    be added and subtracted in a way that respects composition.
 \end{frame}
+
+% \begin{frame}{Preliminary steps (vii): modules and relationship with $\cat{Ab}$}
+%    
+% \end{frame}
 
 \end{document}
