@@ -1,13 +1,19 @@
 \documentclass{beamer}
 \usepackage{amsmath}
-\usepackage{tikz-cd}
 \usepackage{textcomp}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
+\usepackage{quiver}
 
 \usetheme{Berlin}
 
+\newtheorem{proposition}{Proposition}
+
+\DeclareMathOperator{\id}{id}
+
+\newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\cat}[1]{\mathsf{#1}}
+\newcommand{\ob}{\cat{ob}}
 
 \title{An Introduction to Abelian Categories}
 \author{Gabriel Antonio Videtta}
@@ -108,8 +114,86 @@
     be added and subtracted in a way that respects composition.
 \end{frame}
 
-% \begin{frame}{Preliminary steps (vii): modules and relationship with $\cat{Ab}$}
-%    
-% \end{frame}
+\begin{frame}{Preliminary steps (vii): modules and relationship with $\cat{Ab}$}
+    Before we properly discuss abelian categories, let's introduce
+    the last fundamental algebraic structure we're going to talk about
+    in this seminary: \textbf{modules}. \medskip
+    
+    Modules are pretty much ``vector spaces over a ring'': they have the
+    same axioms as a vector space, except they are built over a ring,
+    which does not have to allow inverses. \medskip
+
+    Notice that abelian groups are $\ZZ$-modules, where:
+    \[
+        n \cdot x := \underbrace{x + x + \ldots + x}_{n \text{ times}}.
+    \]
+
+    This fact will result useful later on.
+\end{frame}
+
+\begin{frame}
+    Products and coproducts behave in the same way in a
+    pre-additive category, as shown below.
+
+    \begin{proposition}
+        Let $\mathcal{C}$ be a preadditive category. Then
+        products and coproducts are isomorphic to one
+        another in $\mathcal{C}$.
+    \end{proposition}
+\end{frame}
+
+\begin{frame}
+    \begin{proof}
+        Let $A$ and $B$ be two objects in $\mathcal{C}$ and
+        let $(C := A \times B, \pi_A : C \to A, \pi_B : C \to B)$ be a product of
+        $A$ and $B$. We shall determine two morphisms
+        $\iota_A : A \to C$ and $\iota_B : B \to C$ such that
+        $(C, \iota_A, \iota_B)$ is also a coproduct of $A$ and
+        $B$. \medskip
+
+        In doing so, we strive to get some ``injections'' of $A$ and $B$
+        into $A \times B$. A way of doing that is to use the universal
+        property of $A \times B$ and extend the following morphisms
+        to two morphisms $\iota_A$, $\iota_B : A, \, B \to C$:
+
+        \begin{enumerate}
+            \item $\id_A$, $0_{AB} \leadsto \iota_A$,
+            \item $0_{BA}$, $\id_B \leadsto \iota_B$.
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+    \begin{proof}
+        $\iota_A$ and $\iota_B$ yield the following commutative diagram:
+
+        \[\begin{tikzcd}[sep=2.25em]
+            & A \\
+            A & {A \times B} & B \\
+            & B
+            \arrow["{\operatorname{id}_A}", from=1-2, to=2-1]
+            \arrow["{\iota_A}", from=1-2, to=2-2]
+            \arrow["{0_{AB}}", from=1-2, to=2-3]
+            \arrow["{\pi_A}", from=2-2, to=2-1]
+            \arrow["{\pi_B}"', from=2-2, to=2-3]
+            \arrow["{0_{BA}}", from=3-2, to=2-1]
+            \arrow["{\iota_B}", from=3-2, to=2-2]
+            \arrow["{\operatorname{id}_B}", from=3-2, to=2-3]
+        \end{tikzcd}\]
+    \end{proof}
+\end{frame}
+
+\begin{frame}
+    \begin{proof}
+        Let's now prove that $(C, \iota_A, \iota_B)$ is a coproduct. Let
+        $D$ be an object from $\mathcal{C}$ and let $f$, $g : A$, $B \to D$
+        be morphisms. \medskip
+
+        Let's define $h : C \to D$ such that:
+        \[
+            h = f \circ \pi_A + g \circ \pi_B. 
+        \] 
+    \end{proof}
+\end{frame}
 
 \end{document}
