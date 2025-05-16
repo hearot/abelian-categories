@@ -59,6 +59,26 @@
     \end{definition}
 \end{frame}
 
+\begin{frame}{Zero morphisms}
+    Zero objects also allow for the
+    definition of zero morphisms, which will be regarded as the
+    ``trivial morphism'' from $A$ to $B$ (e.g., sending all elements
+    of $A$ into a ``null element'', if the category is an
+    algebraic one). \medskip
+
+    \begin{definition}
+        Let $A$ and $B$ be two objects and let $0$ be a zero
+        object of $\mathcal{C}$. Then we define $0_{AB}$ as
+        follows
+        \[
+            0_{AB} \triangleq \, ?_{B} \, \circ \, !_{A}, \qquad \text{where} \quad ?_B : 0 \to B, \quad\; !_A : A \to 0.
+        \]
+    \end{definition}
+
+    The definition is independent of the zero object $0$ and is
+    in this sense ``unique''.
+\end{frame}
+
 \begin{frame}{Preliminary steps (iv)}
     Moreover, the hom-set $\hom(V, W)$ has an additional
     structure: it's not just a set, it has a natural structure
@@ -156,8 +176,8 @@
             $B$. \medskip
 
             In doing so, we strive to get some ``injections'' of $A$ and $B$
-            into $A \times B$. A way of doing that is to use the universal
-            property of $A \times B$ and extend the following morphisms
+            into $C$. A way of doing that is to use the universal
+            property of $C$ and extend the following morphisms
             to two morphisms $\iota_A$, $\iota_B : A, \, B \to C$:
 
             \begin{enumerate}
@@ -241,6 +261,66 @@
 
         \alt<6>{\qedhere}{\phantom\qedhere}
     \end{proof}
+\end{frame}
+
+\begin{frame}
+    We're missing just two ingredients for the definition of pre-abelian categories:
+    \textbf{kernels} and \textbf{cokernels}. Let's derive kernels from an example,
+    and cokernels will be defined as the dual of kernels. \medskip
+    
+    
+    In linear algebra, given a linear map $f : V \to W$, we define $\ker f$ as follows:
+    \[
+        \ker f \triangleq \{ v \in V \mid f(v) = w \}.
+    \]
+    Of course we're not allowed to defined kernels as sets, but only as morphisms.
+    An elementary property of $\ker f$ is that $\ker f$ is a subspace of $V$, hence
+    there exists a natural injection map $\iota : \ker f \to V$ such that:
+
+    \[\begin{tikzcd}[ampersand replacement=\&]
+        {\ker f} \& V \& W
+        \arrow["\iota", hook, from=1-1, to=1-2]
+        \arrow["f", from=1-2, to=1-3]
+    \end{tikzcd}, \qquad f \circ \iota = 0_{VW}. \]
+\end{frame}
+
+\begin{frame}
+    It is then natural to define the kernel of $f : A \to B$ as the ``biggest morphism $k$''
+    that annihilates $f$. \medskip
+
+    \begin{definition}
+        Let $f : A \to B$ be a morphism. Then a kernel $k$ of $f$ is a morphism
+        $k : K \to A$ such that:
+        \begin{enumerate}
+            \item $f \circ k = 0_{KB}$,
+            \item If $k' : K' \to A$ is a morphism such that $f \circ k' = 0_{K'B}$, then
+                there exists a unique morphism $\iota_{K'} : K' \to K$ such that
+                $k' = k \circ \iota_{K'}$.
+        \end{enumerate}
+    \end{definition}
+\end{frame}
+
+\begin{frame}
+    Dually, a cokernel of $f : A \to B$ is the ``smallest morphism $j$'' that
+    $f$ annihilates. \medskip
+
+    \begin{definition}
+        Let $f : A \to B$ be a morphism. Then a cokernel $j$ of $f$ is a morphism
+        $j : B \to J$ such that:
+        \begin{enumerate}
+            \item $j \circ f = 0_{AJ}$,
+            \item If $j' : B \to J'$ is a morphism such that $j' \circ f = 0_{AJ'}$, then
+                there exists a unique morphism $\pi_{J'} : J \to J'$ such that
+                $j' = \pi_{J'} \circ j$.
+        \end{enumerate}
+    \end{definition}
+\end{frame}
+
+\begin{frame}
+    \begin{definition}
+        A pre-additive category is pre-abelian if it allows kernels and cokernels for
+        every morphism $f$ and permits products for a finite family of objects.
+    \end{definition}
 \end{frame}
 
 \end{document}
