@@ -19,13 +19,110 @@
 \author{Gabriel Antonio Videtta}
 \date{May 2025}
 
+\titlegraphic{
+    \includegraphics[width=2.5cm]{unipi_logo.png}
+}
+
 \begin{document}
 
 \begin{frame}
     \titlepage
 \end{frame}
 
-\begin{frame}{Preliminary steps (i)}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\AtBeginSection[ ]
+{
+\begin{frame}{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+}
+
+%%%
+% Background: Abelian Groups, K-Vector Spaces and R-Modules
+%%%
+
+\section{Background: Abelian Groups, \texorpdfstring{$K$}{K}-Vector Spaces, and \texorpdfstring{$R$}{R}-Modules}
+
+\begin{frame}
+    Before we take a look at abelian categories, we
+    need to introduce the algebraic structure they
+    all rely on: \textbf{abelian groups}. \medskip
+
+    \begin{definition}[Abelian group]
+        An abelian group $(G, +)$ is a commutative monoid
+        which allows inverses.
+    \end{definition}
+
+    Abelian groups are fairly simple objects with respect to what
+    a general non-commutative group might be. Nonetheless, they
+    appear everywhere: $\ZZ$ and the integers modulo $n$ form
+    an abelian group with addition, and all vector spaces rely on
+    abelian groups for their additive structure.
+\end{frame}
+
+\begin{frame}
+    In fact, the connection between vector spaces and abelian groups is
+    deeper than what it initially appears to be. \smallskip
+
+    In order to show this, let us recall the definition of a ring and of
+    a module.
+
+    \begin{definition}[Ring]
+        A ring is a set $R$ equipped with two binary operations $+$ and $\cdot$
+        such that $(R, +)$ is an abelian
+        group, $(R, \cdot)$ is a monoid and law of distributivity applies, i.e.
+        \[
+            a \cdot (b + c) = a \cdot b + a \cdot c,
+        \]
+        \[
+            (a + b) \cdot c = a \cdot c + b \cdot c,
+        \]
+        for any choice of $a$, $b$, $c \in R$.
+    \end{definition}
+\end{frame}
+
+\begin{frame}
+    \begin{definition}[$R$-module]
+        Given a ring $R$, we say that a set $A$ equipped with a binary operation $+$ is an $R$-module with
+        scalar multiplication $\cdot : R \times A \to A$ if:
+        \begin{enumerate}
+            \item $(A, +)$ is an abelian group,
+            \item $1 a = a$, where $1$ is the unity of the ring $R$ and $a \in A$,
+            \item $\lambda(\mu a) = (\lambda \mu) a$, for each $\lambda$, $\mu \in R$, and $a \in A$, 
+            \item $(\lambda + \mu) a = \lambda a + \mu a$ for each $\lambda$, $\mu \in R$, and $a \in A$,
+            \item $\lambda (a + b) = \lambda a + \lambda b$ for each $\lambda \in R$, and $a$, $b \in A$.
+        \end{enumerate}
+    \end{definition}
+\end{frame}
+
+\begin{frame}
+    In this setting, $K$-vector spaces are simply $K$-modules and abelian groups
+    are simply $\ZZ$-modules with the following scalar multiplication:
+    \[
+        k \cdot g \triangleq \begin{cases}
+            \underbrace{g + \ldots + g}_{k \text{ times}} & k \geq 0 \\
+            -(-k) \cdot g & k < 0.
+        \end{cases}
+    \] \smallskip
+
+    Modules are indeed a great unifying concept for these two algebraic structure, and we'll see
+    at the end of the presentation that the Freyd-Mitchell's embedding theorem will
+    give us more reasons to believe so.
+\end{frame}
+
+%%%
+% Origins and Motivation of Abelian Categories
+%%%
+
+\section{Origins and Motivation of Abelian Categories}
+
+% TODO: insert historical notes
+
+\begin{frame}{The motivation behind abelian categories}
     The intuition for abelian categories comes from the
     behaviour of a kind of
     mathematical object which is found
