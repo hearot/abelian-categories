@@ -321,6 +321,47 @@
         A pre-additive category is pre-abelian if it allows kernels and cokernels for
         every morphism $f$ and permits products for a finite family of objects.
     \end{definition}
+
+    Since a pre-abelian category allows products, it also implicitly allows
+    coproduct, as we have shown earlier.
+\end{frame}
+
+\begin{frame}
+    We're missing just one piece to get to the definition of an abelian category.
+    When we looked at the morphism $\iota : \ker f \to A$ in the context of linear
+    algebra, we generalised $\iota$ thinking of it an ``immersion'', namely an
+    injective function. \medskip
+
+    The opposite is also true in linear algebra: an injective linear map gives always rise
+    to a kernel. In our categorical framework, this will translate to the following
+    definition:
+
+    \begin{definition}
+        A monomorphism is said \textbf{normal} if it's a kernel of a morphism.
+        An epimorphism is said \textbf{conormal} if it's a cokernel of a morphism.
+    \end{definition}
+\end{frame}
+
+\begin{frame}
+    \begin{definition}
+        An abelian category is a pre-abelian category in which all monomorphisms are normal
+        and all epimorphisms are conormal.
+    \end{definition}
+
+    Summing up, an abelian category is a category $\mathcal{C}$ such that:
+    \begin{enumerate}
+        \item The hom-sets $\hom(A, B)$ of $\mathcal{C}$ are abelian groups in a way such that
+            composition is respected;
+        \item $\mathcal{C}$ allows for products and coproducts of finite families of objects;
+        \item Each morphism $f : A \to B$ has a kernel and a cokernel;
+        \item Each monomorphism is a kernel of a morphism;
+        \item Each epimorphism is a cokernel of another morphism.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    Abelian categories are the most general setting for developing homological
+    algebra and exact sequences.
 \end{frame}
 
 \end{document}
