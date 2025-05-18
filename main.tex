@@ -9,6 +9,7 @@
 
 \newtheorem{proposition}{Proposition}
 
+\DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\id}{id}
 
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -18,10 +19,23 @@
 \title{An Introduction to Abelian Categories}
 \author{Gabriel Antonio Videtta}
 \date{May 2025}
+\logo{\includegraphics[width=0.7cm]{unipi_logo.png}}
 
-\titlegraphic{
-    \includegraphics[width=2.5cm]{unipi_logo.png}
-}
+% Hack from https://latex.org/forum/viewtopic.php?t=2387
+% Allows to show only the current section in the Berlin theme
+\makeatletter
+\renewcommand*\insertnavigation[1]{%
+  \vbox{{%
+    \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+    \beamer@xpos=0\relax%
+    \beamer@ypos=1\relax%
+    \hskip.3cm\setbox\beamer@sectionbox=\hbox{\kern1sp}%
+      \ht\beamer@sectionbox=1.875ex%
+      \dp\beamer@sectionbox=0.75ex%
+        \insertsectionhead%
+      \box\beamer@sectionbox\hfil\hskip.3cm%
+  }}}
+\makeatother
 
 \begin{document}
 
@@ -66,35 +80,33 @@
 
 \begin{frame}
     In fact, the connection between vector spaces and abelian groups is
-    deeper than what it initially appears to be. \smallskip
-
-    In order to show this, let us recall the definition of a ring and of
-    a module.
+    deeper than what it initially appears to be. In order to show this,
+    let us recall the definition of a \textbf{ring} and of a \textbf{module}.
 
     \begin{definition}[Ring]
         A ring is a set $R$ equipped with two binary operations $+$ and $\cdot$
         such that $(R, +)$ is an abelian
         group, $(R, \cdot)$ is a monoid and law of distributivity applies, i.e.
+        for any choice of $a$, $b$, $c \in R$
         \[
             a \cdot (b + c) = a \cdot b + a \cdot c,
         \]
         \[
-            (a + b) \cdot c = a \cdot c + b \cdot c,
+            (a + b) \cdot c = a \cdot c + b \cdot c.
         \]
-        for any choice of $a$, $b$, $c \in R$.
     \end{definition}
 \end{frame}
 
 \begin{frame}
     \begin{definition}[$R$-module]
         Given a ring $R$, we say that a set $A$ equipped with a binary operation $+$ is an $R$-module with
-        scalar multiplication $\cdot : R \times A \to A$ if:
+        scalar multiplication $\cdot$ if:
         \begin{enumerate}
             \item $(A, +)$ is an abelian group,
-            \item $1 a = a$, where $1$ is the unity of the ring $R$ and $a \in A$,
-            \item $\lambda(\mu a) = (\lambda \mu) a$, for each $\lambda$, $\mu \in R$, and $a \in A$, 
-            \item $(\lambda + \mu) a = \lambda a + \mu a$ for each $\lambda$, $\mu \in R$, and $a \in A$,
-            \item $\lambda (a + b) = \lambda a + \lambda b$ for each $\lambda \in R$, and $a$, $b \in A$.
+            \item $1 \cdot a = a$, where $1$ is the unity of the ring $R$ and $a \in A$,
+            \item $\lambda \cdot (\mu \cdot a) = (\lambda \cdot \mu) \cdot a$, for each $\lambda$, $\mu \in R$, and $a \in A$, 
+            \item $(\lambda + \mu) \cdot a = \lambda \cdot a + \mu \cdot a$ for each $\lambda$, $\mu \in R$, and $a \in A$,
+            \item $\lambda \cdot (a + b) = \lambda \cdot a + \lambda \cdot b$ for each $\lambda \in R$, and $a$, $b \in A$.
         \end{enumerate}
     \end{definition}
 \end{frame}
@@ -120,28 +132,67 @@
 
 \section{Origins and Motivation of Abelian Categories}
 
-% TODO: insert historical notes
+\begin{frame}
+    In 1945 two mathematicians, Eilenberg and Mac Lane, wrote for the
+    first time about categories in the way we look at them now. \medskip
+    
+    They were looking to
+    deeply understand \textit{natural transformations}, hence they had
+    to deal with functors and categories first. Their goal was to
+    apply such abstractness to homological algebra, which revolves
+    around \textbf{chain complexes}. \medskip
 
-\begin{frame}{The motivation behind abelian categories}
-    The intuition for abelian categories comes from the
-    behaviour of a kind of
-    mathematical object which is found
-    everywhere in each science: \textbf{vector spaces}. \bigskip
-
-
-    Vector spaces are considered to be well understood
-    and have interesting categorical properties.
+    Understanding chain complexes allow mathematicians to retrieve
+    topological invariants from geometrical structures in a pure
+    algebraic setting.
 \end{frame}
 
-\begin{frame}{Preliminary steps (ii)}
-    First of all, we will denote with $\cat{Vect}_K$ the category
-    of vector spaces over the field $K$, whose objects are vector spaces and
-    morphisms are linear maps. \bigskip
+\begin{frame}
+    Chain complexes are particular concatenations of morphisms in $\cat{Ab}$, the
+    category of abelian groups, written as seen below
+    \[\begin{tikzcd}[sep=large, ampersand replacement=\&]
+        {C_1} \& {C_2} \& \ldots \& {C_n}
+        \arrow["{d_1}", from=1-1, to=1-2]
+        \arrow["{d_2}", from=1-2, to=1-3]
+        \arrow["{d_{n-1}}", from=1-3, to=1-4]
+    \end{tikzcd}\]
+    where $d_{i+1} \circ d_i = 0$ for each $i$ (i.e., $\im d_i \subseteq \ker d_{i+1}$). \smallskip
 
+    We say that such a chain complex is \textbf{exact} whenever $\im d_i$ is exactly
+    $\ker d_{i+1}$ for each $i$.
+\end{frame}
 
-    We will denote with $\cat{FinDimVect}_K$ the subcategory
-    of $\cat{Vect}_K$ which contains only finite dimensional
-    $K$-vector spaces.
+\begin{frame}
+    The goal of abelian categories is to provide the most general setting to
+    generalise and make use of chain complexes. \medskip
+    
+    Instances of the definition of abelian
+    categories are first found in a paper from 1955 by Buchsbaum, whereas further
+    foundations of the theory were laid in a famous paper from
+    Grothendieck later in 1957. \medskip
+
+    The goal of this presentation is to derive the modern setting of
+    abelian categories from scratch.
+\end{frame}
+
+%%%
+% Derivation of Abelian Categories
+%%%
+
+\section{Derivation of Abelian Categories}
+
+\begin{frame}
+    In order to derive a correct definition for
+    abelian categories, we need to address the following issues:
+    \begin{enumerate}
+        \item We must allow the existance of ``zero morphisms'',
+            since we want $d_{i+1} \circ d_i = 0$.
+        \item We must allow some structure for the hom-sets, as
+            group homomorphisms between two abelian groups $A$ and
+            $B$ form an abelian group as well.
+        \item We need to define kernels in a pure categorical sense,
+            since $\ker f$ is a set and not an object nor a morphism. 
+    \end{enumerate}
 \end{frame}
 
 \begin{frame}{Preliminary steps (iii): zero objects}
