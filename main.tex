@@ -17,9 +17,16 @@
 \newcommand{\ob}{\cat{ob}}
 
 \title{An Introduction to Abelian Categories}
-\author{Gabriel Antonio Videtta}
+
+% Reduce vertical space between author and date
+\author{Gabriel Antonio Videtta\texorpdfstring{\vspace*{-13pt}}{}}
+
 \date{May 2025}
 \logo{\includegraphics[width=0.7cm]{unipi_logo.png}}
+
+\titlegraphic{
+    \includegraphics[width=4cm]{abelian_cat.jpg}
+}
 
 % Hack from https://latex.org/forum/viewtopic.php?t=2387
 % Allows to show only the current section in the Berlin theme
@@ -470,5 +477,10 @@
         \item Each epimorphism is a cokernel of another morphism.
     \end{enumerate}
 \end{frame}
+
+% TODO: an abelian category is always balanced
+% TODO: "the enrichment over Ab" is natural
+% TODO: important results based on abelian categories
+% TODO: bibliography
 
 \end{document}
