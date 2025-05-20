@@ -15,9 +15,9 @@
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\id}{id}
 
+\newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\cat}[1]{\mathsf{#1}}
-\newcommand{\ob}{\cat{ob}}
 
 \title{An Introduction to Abelian Categories}
 
@@ -504,6 +504,39 @@
         \item Each monomorphism is a kernel of a morphism;
         \item Each epimorphism is a cokernel of another morphism.
     \end{enumerate}
+\end{frame}
+
+%%
+% Main Results on Abelian Categories
+%% 
+
+\section{Main Results on Abelian Categories}
+
+\begin{frame}
+    In this final section of the presentation, we illustrate
+    some fundamental theorems about abelian categories, which
+    motivate even more their existance. \medskip
+    
+    Before starting out, let's
+    define what a \textbf{bimorphism} is:
+
+    \begin{definition}[Bimorphism]
+        Given a category $\mathcal{C}$, a morphism
+        $f : A \to B$ which is both monic and epic is
+        called a bimorphism. 
+    \end{definition}
+\end{frame}
+
+\begin{frame}
+    In a general category, bimorphisms and isomorphisms do not
+    coincide. For example, in $\cat{Mon}$, $\iota : \NN \to \ZZ$
+    is a bimorphism, even though $\NN \not\cong \ZZ$. \medskip
+
+    This is not the case for abelian categories:
+    \begin{theorem}
+        Given an abelian category $\cat{C}$, bimorphisms are
+        always isomorphisms.
+    \end{theorem}
 \end{frame}
 
 %%
