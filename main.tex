@@ -458,6 +458,82 @@
 \end{frame}
 
 \begin{frame}
+    (Co)kernels of the same morphism $f$
+    have the desidered property of being ``unique'' and can always be thought
+    of being the same object. \medskip
+
+    \begin{proposition}
+        \label{prop:kernels_unique_up_to_iso}
+        Kernels are cokernels of a morphism $f$ are unique up to isomorphism.
+    \end{proposition}
+
+    We prove the statement only for kernels, then the statement is obtained for
+    cokernels dually. \medskip
+\end{frame}
+
+\begin{frame}
+    \begin{proof}
+        \only<1>{
+            Let $k$, $k' : K$, $K' \to A$ be two kernels of $f : A \to B$. The
+            situation is represented in the following commutative diagram:
+            \[\begin{tikzcd}[sep=large, ampersand replacement=\&]
+                K \\
+                \& A \& B \\
+                {K'}
+                \arrow["k"', from=1-1, to=2-2]
+                \arrow["{0_{KB}}", curve={height=-6pt}, from=1-1, to=2-3]
+                \arrow["f", from=2-2, to=2-3]
+                \arrow["{k'}", from=3-1, to=2-2]
+                \arrow["{0_{K'B}}"', curve={height=6pt}, from=3-1, to=2-3]
+            \end{tikzcd}\]
+        }
+
+        \only<2>{
+            Since $k$ is a kernel of $f$, there exists a unique morphism
+            $p : K' \to K$ such that $k' = k \circ p$.
+            \[\begin{tikzcd}[sep=large, ampersand replacement=\&]
+                K \\
+                \& A \& B \\
+                {K'}
+                \arrow["k"', from=1-1, to=2-2]
+                \arrow["{0_{KB}}", curve={height=-6pt}, from=1-1, to=2-3]
+                \arrow["f", from=2-2, to=2-3]
+                \arrow["p", curve={height=-6pt}, dashed, from=3-1, to=1-1]
+                \arrow["{k'}", from=3-1, to=2-2]
+                \arrow["{0_{K'B}}"', curve={height=6pt}, from=3-1, to=2-3]
+            \end{tikzcd}\]
+        }
+
+        \only<3>{
+            The same goes in the other way: there exists a unique morphism
+            $p' : K \to K'$ such that $k = k' \circ p'$.
+            \[\begin{tikzcd}[sep=large, ampersand replacement=\&]
+                K \\
+                \& A \& B \\
+                {K'}
+                \arrow["k"', from=1-1, to=2-2]
+                \arrow["{0_{KB}}", curve={height=-6pt}, from=1-1, to=2-3]
+                \arrow["{p'}"', curve={height=-6pt}, dashed, from=1-1, to=3-1]
+                \arrow["f", from=2-2, to=2-3]
+                \arrow["{k'}", from=3-1, to=2-2]
+                \arrow["{0_{K'B}}"', curve={height=6pt}, from=3-1, to=2-3]
+            \end{tikzcd}\]
+        }
+
+        \only<4>{
+            We note that
+            \[ k = k' \circ p' = \underbrace{k \circ p}_{k'} \circ p'. \]
+            Since $\id_K$ is such that $k = k \circ \id_K$ as well,
+            by the universal property of kernels
+            $p \circ p' = \id_K$. Similarly, $p' \circ p = \id_{K'}$, hence $p$ and $p'$
+            are isomorphisms.
+        }
+
+        \alt<4>{\qedhere}{\phantom\qedhere}
+    \end{proof}
+\end{frame}
+
+\begin{frame}
     \begin{definition}
         A pre-additive category is pre-abelian if it allows kernels and cokernels for
         every morphism $f$ and permits products for a finite family of objects.
@@ -514,7 +590,7 @@
 
 \begin{frame}
     In this final section of the presentation, we illustrate
-    some fundamental theorems about abelian categories, which
+    two fundamental results about abelian categories, which
     motivate even more their existance. \medskip
     
     Before starting out, let's
@@ -534,10 +610,48 @@
 
     This is not the case for abelian categories:
     \begin{theorem}
-        Given an abelian category $\cat{C}$, bimorphisms are
+        Given an abelian category $\mathcal{C}$, bimorphisms are
         always isomorphisms.
     \end{theorem}
 \end{frame}
+
+\begin{frame}
+    \begin{proof}
+        \only<1>{
+            Let $f : A \to B$ be a bimorphism. Then, since in $\mathcal{C}$
+            all monomorphisms are normal, $f$ is the kernel of a morphism
+            $g : B \to C$. \medskip
+
+
+            Observe that
+            \[ g \circ f = 0_{AC} = 0_{BC} \circ f. \]
+            Since $f$ is an epimorphism, this implies that $g = 0_{BC}$.
+        }
+
+        \only<2>{
+            Then $\id_B : B \to B$ is a kernel of $g$ as well: \medskip
+
+            \begin{itemize}
+                \item $g \circ \id_B = 0_{BC} \circ \id_B = 0_{BC}$,
+                \item If $k' : K' \to B$ is a kernel of $g$, then
+                    the only morphism $k$ satisfying $k' = \id_B \circ k$
+                    is $k'$ itself, hence it is unique.
+            \end{itemize}
+        }
+
+        \only<3>{
+            Since $f : A \to B$ and $\id_B : B \to B$ are both kernels of the
+            same morphism, the morphism $p : A \to B$ connecting $f$
+            to $\id_B$ is an isomorphism (see Proposition \ref{prop:kernels_unique_up_to_iso}).
+            Since $p = \id_B \circ f = f$, this
+            concludes the proof.
+        }
+
+        \alt<3>{\qedhere}{\phantom\qedhere}
+    \end{proof}
+\end{frame}
+
+% TODO: Freyd-Mitchell embedding theorem
 
 %%
 % References
@@ -552,10 +666,5 @@
         \frametitle{References}
         \printbibliography
 \end{frame}
-
-% TODO: an abelian category is always balanced
-% TODO: "the enrichment over Ab" is natural
-% TODO: important results based on abelian categories
-% TODO: bibliography
 
 \end{document}
