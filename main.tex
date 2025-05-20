@@ -71,7 +71,7 @@
 
 \section{Background: Abelian Groups, \texorpdfstring{$K$}{K}-Vector Spaces, and \texorpdfstring{$R$}{R}-Modules}
 
-\begin{frame}
+\begin{frame}{Abelian Groups}
     Before we take a look at abelian categories, we
     need to introduce the algebraic structure they
     all rely on: \textbf{abelian groups}. \medskip
@@ -81,14 +81,14 @@
         which allows inverses.
     \end{definition}
 
-    Abelian groups are fairly simple objects with respect to what
-    a general non-commutative group might be. Nonetheless, they
+    Although abelian groups are fairly simple objects compared to
+    a non-commutative groups, they
     appear everywhere: $\ZZ$ and the integers modulo $n$ form
     an abelian group with addition, and all vector spaces rely on
     abelian groups for their additive structure.
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Rings and Modules I}
     In fact, the connection between vector spaces and abelian groups is
     deeper than what it initially appears to be. In order to show this,
     let us recall the definition of a \textbf{ring} and of a \textbf{module}.
@@ -107,7 +107,7 @@
     \end{definition}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Rings and Modules II}
     \begin{definition}[$R$-module]
         Given a ring $R$, we say that a set $A$ equipped with a binary operation $+$ is an $R$-module with
         scalar multiplication $\cdot$ if:
@@ -121,7 +121,7 @@
     \end{definition}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Abelian Groups as \texorpdfstring{$\ZZ$}{ℤ}-Modules}
     In this setting, $K$-vector spaces are simply $K$-modules and abelian groups
     are simply $\ZZ$-modules with the following scalar multiplication:
     \[
@@ -142,7 +142,7 @@
 
 \section{Origins and Motivation of Abelian Categories}
 
-\begin{frame}
+\begin{frame}{Historical Notes}
     In 1945 two mathematicians, Eilenberg and Mac Lane, wrote for the
     first time about categories in the way we look at them now. \medskip
     
@@ -157,7 +157,7 @@
     algebraic setting.
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Chain Complexes}
     Chain complexes are particular concatenations of morphisms in $\cat{Ab}$, the
     category of abelian groups, written as seen below
     \[\begin{tikzcd}[sep=large, ampersand replacement=\&]
@@ -172,7 +172,7 @@
     $\ker d_{i+1}$ for each $i$.
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Historical Notes II}
     The goal of abelian categories is to provide the most general setting to
     generalise and make use of chain complexes. \medskip
     
@@ -191,7 +191,7 @@
 
 \section{Derivation of Abelian Categories}
 
-\begin{frame}
+\begin{frame}{Steps to Define Abelian Categories}
     In order to derive a correct definition for
     abelian categories, we need to address the following issues:
     \begin{enumerate}
@@ -250,7 +250,7 @@
     in this sense ``unique''.
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Enrichment of \texorpdfstring{$\cat{RMod}$}{RMod} over \texorpdfstring{$\cat{Ab}$}{Ab}}
     Hom-sets of the form $\hom(V, W)$ in $\cat{Ab}$ (and $\cat{RMod}$, the category
     of $R$-modules) have an additional
     structure: they are not just a set, they have a natural structure
@@ -269,7 +269,7 @@
     This gives rise to an important definition...
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Preadditive Categories}
     \begin{definition}[Preadditive category]
         Let $\mathcal{C}$ be a category. We say that $\mathcal{C}$
         is a \textbf{preadditive category} if each hom-set in
@@ -281,7 +281,7 @@
     be added and subtracted in a way that respects composition.
 \end{frame}
 
-\begin{frame}
+\begin{frame}{(Co)products in Preadditive Categories}
     Products and coproducts behave in the same way in a
     pre-additive category, as shown below. \smallskip
 
@@ -295,8 +295,18 @@
     the statement is proved similarly.
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile]{Proof that \texorpdfstring{$\sqcup$}{⊔} and \texorpdfstring{$\times$}{×} Coincide in Preadditive Categories}
     \begin{proof}
+        \frametitle{%
+            \only<1>{\texorpdfstring{$\sqcup$}{⊔} and \texorpdfstring{$\times$}{×} coincide in Preadditive Categories I}%
+            \only<2>{\texorpdfstring{$\sqcup$}{⊔} and \texorpdfstring{$\times$}{×} coincide in Preadditive Categories II}%
+            \only<3>{\texorpdfstring{$\sqcup$}{⊔} and \texorpdfstring{$\times$}{×} coincide in Preadditive Categories III}%
+            \only<4>{\texorpdfstring{$\sqcup$}{⊔} and \texorpdfstring{$\times$}{×} coincide in Preadditive Categories IV}%
+            \only<5>{\texorpdfstring{$\sqcup$}{⊔} and \texorpdfstring{$\times$}{×} coincide in Preadditive Categories V}%
+            \only<6>{\texorpdfstring{$\sqcup$}{⊔} and \texorpdfstring{$\times$}{×} coincide in Preadditive Categories VI}%
+            \only<7>{\texorpdfstring{$\sqcup$}{⊔} and \texorpdfstring{$\times$}{×} coincide in Preadditive Categories VII}%
+        }
+
         \only<1>{
             Let $A$ and $B$ be two objects in $\mathcal{C}$ and
             let $C := A \times B$ equipped with projections
@@ -401,7 +411,7 @@
     \end{proof}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{(Co)kernels in Category Theory I}
     We're missing just two ingredients for the definition of pre-abelian categories:
     \textbf{kernels} and \textbf{cokernels}. Let's derive kernels from an example,
     and cokernels will be defined as the dual of kernels. \medskip
@@ -413,7 +423,7 @@
     \]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{(Co)kernels in Category Theory II}
     Of course we're not allowed to defined kernels as sets, but only as objects or morphisms.
     An elementary property of $\ker f$ is that $\ker f$ is subordinate to $A$, hence
     there exists a natural injection map $\iota : \ker f \to A$ such that:
@@ -425,7 +435,7 @@
     \end{tikzcd}, \qquad f \circ \iota = 0_{AB}. \]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{(Co)kernels in Category Theory III}
     It is then natural to define the kernel of $f : A \to B$ as the ``biggest morphism $k$''
     that annihilates $f$. \medskip
 
@@ -441,7 +451,7 @@
     \end{definition}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{(Co)kernels in Category Theory IV}
     Dually, a cokernel of $f : A \to B$ is the ``smallest morphism $j$'' that
     $f$ annihilates. \medskip
 
@@ -457,7 +467,8 @@
     \end{definition}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{(Co)kernels Are Unique up to Isomorphism}
+    \frametitle{(Co)kernels Are Unique up to Isomorphism I}
     (Co)kernels of the same morphism $f$
     have the desidered property of being ``unique'' and can always be thought
     of being the same object. \medskip
@@ -471,7 +482,14 @@
     cokernels dually. \medskip
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Proof that (Co)kernels Are Unique up to Isomorphism}
+    \frametitle{%
+        \only<1>{(Co)kernels Are Unique up to Isomorphism II}%
+        \only<2>{(Co)kernels Are Unique up to Isomorphism III}%
+        \only<3>{(Co)kernels Are Unique up to Isomorphism IV}%
+        \only<4>{(Co)kernels Are Unique up to Isomorphism V}%
+    }
+
     \begin{proof}
         \only<1>{
             Let $k$, $k' : K$, $K' \to A$ be two kernels of $f : A \to B$. The
@@ -533,7 +551,7 @@
     \end{proof}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Pre-abelian Categories}
     \begin{definition}
         A pre-additive category is pre-abelian if it allows kernels and cokernels for
         every morphism $f$ and permits products for a finite family of objects.
@@ -543,7 +561,7 @@
     coproduct, as we have shown earlier.
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Monomorphisms as Kernels in Abelian Categories}
     We're missing just one piece to get to the definition of an abelian category.
     When we looked at the morphism $\iota : \ker f \to A$ in the context of linear
     algebra, we generalised $\iota$ thinking of it an ``immersion'', namely an
@@ -554,7 +572,7 @@
     to a kernel.
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Normal Monomorphisms and Conormal Epimorphisms}
     In our categorical framework, this will translate to the following
     definition: \medskip
 
@@ -564,7 +582,7 @@
     \end{definition}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Definition of an Abelian Category}
     \begin{definition}
         An abelian category is a pre-abelian category in which all monomorphisms are normal
         and all epimorphisms are conormal.
@@ -583,12 +601,12 @@
 \end{frame}
 
 %%
-% Main Results on Abelian Categories
+% Fundamental Results on Abelian Categories
 %% 
 
-\section{Main Results on Abelian Categories}
+\section{Fundamental Results on Abelian Categories}
 
-\begin{frame}
+\begin{frame}{Bimorphisms}
     In this final section of the presentation, we illustrate
     two fundamental results about abelian categories, which
     motivate even more their existance. \medskip
@@ -603,7 +621,9 @@
     \end{definition}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Bimorphisms are Isomorphisms in Abelian Categories}
+    \frametitle{Bimorphisms are Isomorphisms in Abelian Categories I}
+
     In a general category, bimorphisms and isomorphisms do not
     coincide. For example, in $\cat{Mon}$, $\iota : \NN \to \ZZ$
     is a bimorphism, even though $\NN \not\cong \ZZ$. \medskip
@@ -615,7 +635,13 @@
     \end{theorem}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Proof that Bimorphisms are Isomorphisms in Abelian Categories}
+    \frametitle{%
+        \only<1>{Bimorphisms are Isomorphisms in Abelian Categories II}%
+        \only<2>{Bimorphisms are Isomorphisms in Abelian Categories III}%
+        \only<3>{Bimorphisms are Isomorphisms in Abelian Categories IV}%
+    }
+
     \begin{proof}
         \only<1>{
             Let $f : A \to B$ be a bimorphism. Then, since in $\mathcal{C}$
@@ -651,7 +677,7 @@
     \end{proof}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{The Freyd-Mitchell Embedding Theorem I}
     One the most important results about abelian categories states
     that each small abelian category is a full subcategory of
     $\cat{RMod}$, for a certain ring $R$. \medskip
@@ -662,7 +688,7 @@
     \end{theorem}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{The Freyd-Mitchell Embedding Theorem II}
     The Freyd-Mitchell embedding theorem allows to study all small
     abelian categories in a concrete and well-studied setting, that
     of $R$-modules, with the most advanced algebraic tools. \medskip
