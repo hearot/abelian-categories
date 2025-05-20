@@ -72,31 +72,31 @@
 \section{Background: Abelian Groups, \texorpdfstring{$K$}{K}-Vector Spaces, and \texorpdfstring{$R$}{R}-Modules}
 
 \begin{frame}{Abelian Groups}
-    Before we take a look at abelian categories, we
-    need to introduce the algebraic structure they
+    Before examining abelian categories, we
+    introduce the algebraic structure they
     all rely on: \textbf{abelian groups}. \medskip
 
     \begin{definition}[Abelian group]
         An abelian group $(G, +)$ is a commutative monoid
-        which allows inverses.
+        in which every element has an inverse.
     \end{definition}
 
-    Although abelian groups are fairly simple objects compared to
-    a non-commutative groups, they
+    Though abelian groups are relatively simple compared to
+    non-commutative groups, they
     appear everywhere: $\ZZ$ and the integers modulo $n$ form
-    an abelian group with addition, and all vector spaces rely on
+    an abelian group with addition, and all vector spaces depend on
     abelian groups for their additive structure.
 \end{frame}
 
 \begin{frame}{Rings and Modules I}
     In fact, the connection between vector spaces and abelian groups is
-    deeper than what it initially appears to be. In order to show this,
+    deeper than it might first appear. In order to show this,
     let us recall the definition of a \textbf{ring} and of a \textbf{module}.
 
-    \begin{definition}[Ring]
-        A ring is a set $R$ equipped with two binary operations $+$ and $\cdot$
+    \begin{definition}[Unital ring]
+        A (unital) ring is a set $R$ equipped with two binary operations $+$ and $\cdot$
         such that $(R, +)$ is an abelian
-        group, $(R, \cdot)$ is a monoid and law of distributivity applies, i.e.
+        group, $(R, \cdot)$ is a monoid and the distributivity laws hold, i.e.,
         for any choice of $a$, $b$, $c \in R$
         \[
             a \cdot (b + c) = a \cdot b + a \cdot c,
@@ -109,14 +109,14 @@
 
 \begin{frame}{Rings and Modules II}
     \begin{definition}[$R$-module]
-        Given a ring $R$, we say that a set $A$ equipped with a binary operation $+$ is an $R$-module with
+        Given a ring $R$, a set $A$ equipped with a binary operation $+$ is said to be an $R$-module with
         scalar multiplication $\cdot$ if:
         \begin{enumerate}
             \item $(A, +)$ is an abelian group,
-            \item $1 \cdot a = a$, where $1$ is the unity of the ring $R$ and $a \in A$,
-            \item $\lambda \cdot (\mu \cdot a) = (\lambda \cdot \mu) \cdot a$, for each $\lambda$, $\mu \in R$, and $a \in A$, 
-            \item $(\lambda + \mu) \cdot a = \lambda \cdot a + \mu \cdot a$ for each $\lambda$, $\mu \in R$, and $a \in A$,
-            \item $\lambda \cdot (a + b) = \lambda \cdot a + \lambda \cdot b$ for each $\lambda \in R$, and $a$, $b \in A$.
+            \item $1 \cdot a = a$, where $1$ is the identity element of the ring $R$ and $a \in A$,
+            \item $\lambda \cdot (\mu \cdot a) = (\lambda \cdot \mu) \cdot a$, for all $\lambda$, $\mu \in R$, and $a \in A$, 
+            \item $(\lambda + \mu) \cdot a = \lambda \cdot a + \mu \cdot a$ for all $\lambda$, $\mu \in R$, and $a \in A$,
+            \item $\lambda \cdot (a + b) = \lambda \cdot a + \lambda \cdot b$ for all $\lambda \in R$, and $a$, $b \in A$.
         \end{enumerate}
     \end{definition}
 \end{frame}
@@ -131,9 +131,8 @@
         \end{cases}
     \] \smallskip
 
-    Modules are indeed a great unifying concept for these two algebraic structure, and we'll see
-    at the end of the presentation that the Freyd-Mitchell embedding theorem will
-    give us more reasons to believe so.
+    Modules indeed unify these algebraic structures, and we further illustrate this
+    connection through the Freyd-Mitchell embedding theorem.
 \end{frame}
 
 %%%
@@ -152,9 +151,9 @@
     apply such abstractness to homological algebra, which revolves
     around \textbf{chain complexes}. \medskip
 
-    Understanding chain complexes allow mathematicians to retrieve
-    topological invariants from geometrical structures in a pure
-    algebraic setting.
+    Understanding chain complexes allows mathematicians to extract
+    topological invariants from geometrical structures within a purely
+    algebraic framework.
 \end{frame}
 
 \begin{frame}{Chain Complexes}
@@ -168,20 +167,20 @@
     \end{tikzcd}\]
     where $d_{i+1} \circ d_i = 0$ for each $i$ (i.e., $\im d_i \subseteq \ker d_{i+1}$). \smallskip
 
-    We say that such a chain complex is \textbf{exact} whenever $\im d_i$ is exactly
-    $\ker d_{i+1}$ for each $i$.
+    Such a chain complex is said to be \textbf{exact} if
+    $\im d_i = \ker d_{i+1}$ for each $i$.
 \end{frame}
 
 \begin{frame}{Historical Notes II}
     The goal of abelian categories is to provide the most general setting to
     generalise and make use of chain complexes. \medskip
     
-    Instances of the definition of abelian
+    The first instances of the definition of abelian
     categories are first found in a paper from 1955 by Buchsbaum, whereas further
-    foundations of the theory were laid in a famous paper from
-    Grothendieck later in 1957. \medskip
+    foundations of the theory were laid in a famous paper by
+    Grothendieck in 1957. \medskip
 
-    The goal of this presentation is to derive the modern setting of
+    We derive in this presentation the modern setting of
     abelian categories from scratch.
 \end{frame}
 
@@ -195,8 +194,8 @@
     In order to derive a correct definition for
     abelian categories, we need to address the following issues:
     \begin{enumerate}
-        \item We must allow for the existance of ``zero morphisms'',
-            since we want $d_{i+1} \circ d_i = 0$.
+        \item We must allow for the existence of ``zero morphisms'',
+            since we require $d_{i+1} \circ d_i = 0$.
         \item We must allow some structure for the hom-sets, as
             group homomorphisms between two abelian groups $A$ and
             $B$ form an abelian group as well.
@@ -209,13 +208,13 @@
     Abelian groups, vector spaces, and modules in general have a peculiar property: \textit{initial objects and
     final objects are the same!} \medskip
     
-    In both cases, such initial object is always
+    In both cases, this initial object is always
     denoted as the ``trivial'' or ``zero'' object, since it always induces a
     ``trivial'' morphism with respect to another module.
 \end{frame}
 
 \begin{frame}{Zero objects II}
-    Hence it is crucial to give a proper definition for \textbf{zero objects}: \medskip
+    It is therefore crucial to provide a proper definition of \textbf{zero objects}: \medskip
     
     \begin{definition}[Zero object]
         Let $\mathcal{C}$ be a category. We say $0$ is a
@@ -228,11 +227,11 @@
     As anticipated, zero objects also allow for the
     definition of zero morphisms, which will be regarded as the
     ``trivial morphism'' from $A$ to $B$ (e.g., sending all elements
-    of $A$ into a ``null element'', if the category is a concrete and
-    algebraic one). \medskip
+    of $A$ into a ``null element'', when the category is concrete and
+    algebraic). \medskip
 
     We derive a definition for zero morphisms
-    by combining the existance and uniqueness of initial and finals morphisms
+    by combining the existence and uniqueness of initial and final morphisms
     with respect to $0$.
 \end{frame}
 
@@ -253,11 +252,11 @@
 \begin{frame}{Enrichment of \texorpdfstring{$\cat{RMod}$}{RMod} over \texorpdfstring{$\cat{Ab}$}{Ab}}
     Hom-sets of the form $\hom(V, W)$ in $\cat{Ab}$ (and $\cat{RMod}$, the category
     of $R$-modules) have an additional
-    structure: they are not just a set, they have a natural structure
+    structure: they are not just sets, they have a natural structure
     of abelian group as well! \medskip
 
     We can sum morphisms ($f + g$), $0_{VW}$ is indeed the unity,
-    and the sum behave
+    and the sum behaves
     ``bilinearly'' with respect to the composition ($\circ$):
     \[
         (f + g) \circ h = f \circ h + g \circ h,
@@ -277,18 +276,18 @@
         morphisms acts bilinearly.
     \end{definition}
 
-    In short, a preadditive category is such that its morphisms can
-    be added and subtracted in a way that respects composition.
+    In short, a preadditive category is one in which morphisms can
+    be added and subtracted in a way compatible with composition.
 \end{frame}
 
 \begin{frame}{(Co)products in Preadditive Categories}
     Products and coproducts behave in the same way in a
-    pre-additive category, as shown below. \smallskip
+    preadditive category, as shown below. \smallskip
 
     \begin{proposition}
         Let $\mathcal{C}$ be a preadditive category. Then
-        products and coproducts are isomorphic to one
-        another in $\mathcal{C}$.
+        products and coproducts are isomorphic
+        in $\mathcal{C}$.
     \end{proposition}
 
     We only prove that products are also coproducts; the other part of
@@ -318,7 +317,7 @@
             $(C, \iota_A, \iota_B)$ is also a coproduct of $A$ and
             $B$. \medskip
 
-            In doing so, we strive to get some ``injections'' of $A$ and $B$
+            In doing so, we aim to construct two ``injections'' of $A$ and $B$
             into $C$.
         }
 
@@ -412,19 +411,19 @@
 \end{frame}
 
 \begin{frame}{(Co)kernels in Category Theory I}
-    We're missing just two ingredients for the definition of pre-abelian categories:
+    We are missing just two ingredients for the definition of pre-abelian categories:
     \textbf{kernels} and \textbf{cokernels}. Let's derive kernels from an example,
     and cokernels will be defined as the dual of kernels. \medskip
     
     
     In abstract and linear algebra, given a morphism $f : A \to B$, we define $\ker f$ as follows:
     \[
-        \ker f \triangleq \{ a \in B \mid f(a) = 0 \}.
+        \ker f \triangleq \{ a \in A \mid f(a) = 0 \}.
     \]
 \end{frame}
 
 \begin{frame}{(Co)kernels in Category Theory II}
-    Of course we're not allowed to defined kernels as sets, but only as objects or morphisms.
+    Of course we are not allowed to define kernels as sets, but only as objects or morphisms.
     An elementary property of $\ker f$ is that $\ker f$ is subordinate to $A$, hence
     there exists a natural injection map $\iota : \ker f \to A$ such that:
 
@@ -437,7 +436,7 @@
 
 \begin{frame}{(Co)kernels in Category Theory III}
     It is then natural to define the kernel of $f : A \to B$ as the ``biggest morphism $k$''
-    that annihilates $f$. \medskip
+    that is annihilated by $f$. \medskip
 
     \begin{definition}
         Let $f : A \to B$ be a morphism. Then a kernel $k$ of $f$ is a morphism
@@ -453,7 +452,7 @@
 
 \begin{frame}{(Co)kernels in Category Theory IV}
     Dually, a cokernel of $f : A \to B$ is the ``smallest morphism $j$'' that
-    $f$ annihilates. \medskip
+    annihilates $f$. \medskip
 
     \begin{definition}
         Let $f : A \to B$ be a morphism. Then a cokernel $j$ of $f$ is a morphism
@@ -470,12 +469,12 @@
 \begin{frame}{(Co)kernels Are Unique up to Isomorphism}
     \frametitle{(Co)kernels Are Unique up to Isomorphism I}
     (Co)kernels of the same morphism $f$
-    have the desidered property of being ``unique'' and can always be thought
+    have the desired property of being ``unique'' and can always be thought
     of being the same object. \medskip
 
     \begin{proposition}
         \label{prop:kernels_unique_up_to_iso}
-        Kernels are cokernels of a morphism $f$ are unique up to isomorphism.
+        Kernels and cokernels of a morphism $f$ are unique up to isomorphism.
     \end{proposition}
 
     We prove the statement only for kernels, then the statement is obtained for
@@ -523,7 +522,7 @@
         }
 
         \only<3>{
-            The same goes in the other way: there exists a unique morphism
+            The same holds in the other direction: there exists a unique morphism
             $p' : K \to K'$ such that $k = k' \circ p'$.
             \[\begin{tikzcd}[sep=large, ampersand replacement=\&]
                 K \\
@@ -553,8 +552,8 @@
 
 \begin{frame}{Pre-abelian Categories}
     \begin{definition}
-        A pre-additive category is pre-abelian if it allows kernels and cokernels for
-        every morphism $f$ and permits products for a finite family of objects.
+        A preadditive category is called pre-abelian if it admits kernels and cokernels for
+        every morphism and has finite products.
     \end{definition}
 
     Since a pre-abelian category allows products, it also implicitly allows
@@ -562,14 +561,14 @@
 \end{frame}
 
 \begin{frame}{Monomorphisms as Kernels in Abelian Categories}
-    We're missing just one piece to get to the definition of an abelian category.
+    We are missing just one piece to get to the definition of an abelian category.
     When we looked at the morphism $\iota : \ker f \to A$ in the context of linear
-    algebra, we generalised $\iota$ thinking of it an ``immersion'', namely an
+    algebra, we generalised $\iota$ thinking of it as an ``immersion'', namely an
     injective function. \medskip
 
     The opposite is also true for abelian groups, vector spaces and
-    modules: an injective linear map gives always rise
-    to a kernel.
+    modules: an injective linear map can always be realised as the
+    kernel of some other morphism.
 \end{frame}
 
 \begin{frame}{Normal Monomorphisms and Conormal Epimorphisms}
@@ -577,8 +576,8 @@
     definition: \medskip
 
     \begin{definition}
-        A monomorphism is said \textbf{normal} if it's a kernel of a morphism.
-        An epimorphism is said \textbf{conormal} if it's a cokernel of a morphism.
+        A monomorphism is said to be \textbf{normal} if it is a kernel of a morphism.
+        An epimorphism is said to be \textbf{conormal} if it is a cokernel of a morphism.
     \end{definition}
 \end{frame}
 
@@ -590,10 +589,9 @@
 
     Summing up, an abelian category is a category $\mathcal{C}$ such that:
     \begin{enumerate}
-        \item The hom-sets of $\mathcal{C}$ are abelian groups in a way such that
-            composition is respected;
-        \item $\mathcal{C}$ allows for products and coproducts of finite families of objects, and
-            they are the same;
+        \item The hom-sets of $\mathcal{C}$ are abelian groups compatible with the
+            operation of composition;
+        \item $\mathcal{C}$ has finite products and coproducts, which coincide;
         \item Each morphism $f : A \to B$ has a kernel and a cokernel;
         \item Each monomorphism is a kernel of a morphism;
         \item Each epimorphism is a cokernel of another morphism.
@@ -607,11 +605,11 @@
 \section{Fundamental Results on Abelian Categories}
 
 \begin{frame}{Bimorphisms}
-    In this final section of the presentation, we illustrate
-    two fundamental results about abelian categories, which
-    motivate even more their existance. \medskip
+    In this final section of the presentation, we present
+    two fundamental results concerning abelian categories, which
+    motivate even more their introduction. \medskip
     
-    Before starting out, let's
+    Before we begin, let's
     define what a \textbf{bimorphism} is:
 
     \begin{definition}[Bimorphism]
@@ -626,7 +624,7 @@
 
     In a general category, bimorphisms and isomorphisms do not
     coincide. For example, in $\cat{Mon}$, $\iota : \NN \to \ZZ$
-    is a bimorphism, even though $\NN \not\cong \ZZ$. \medskip
+    is a bimorphism, even though $\NN$ is not isomorphic to $\ZZ$. \medskip
 
     This is not the case for abelian categories:
     \begin{theorem}
@@ -678,23 +676,23 @@
 \end{frame}
 
 \begin{frame}{The Freyd-Mitchell Embedding Theorem I}
-    One the most important results about abelian categories states
+    One of the most important results about abelian categories states
     that each small abelian category is a full subcategory of
-    $\cat{RMod}$, for a certain ring $R$. \medskip
+    $\cat{RMod}$, for some suitable ring $R$. \medskip
 
     \begin{theorem}[Freyd-Mitchell embedding theorem]
         Each small abelian category admits a full, faithful and exact
-        functor to $\cat{RMod}$, for a certain ring.
+        functor to $\cat{RMod}$, for some suitable ring $R$.
     \end{theorem}
 \end{frame}
 
 \begin{frame}{The Freyd-Mitchell Embedding Theorem II}
-    The Freyd-Mitchell embedding theorem allows to study all small
+    The Freyd-Mitchell embedding theorem allows one to study all small
     abelian categories in a concrete and well-studied setting, that
     of $R$-modules, with the most advanced algebraic tools. \medskip
 
     This also heavily connects abelian groups and $R$-modules in general,
-    giving an insight of how deep the link between these two
+    giving an insight into how deep the link between these two
     algebraic structures is.
 \end{frame}
 
